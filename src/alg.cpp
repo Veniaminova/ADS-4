@@ -24,33 +24,33 @@ int countPairs2(int *arr, int len, int value) {
     return summa;
 }
 int countPairs3(int* arr, int len, int value){
-	int summa = 0;
-	for (int i = 0; i < len - 1; i++) {
-		int leftInd = i;
-		int rightInd = len;
-		while (leftInd < rightInd - 1) {
-			int middle = (leftInd + rightInd) / 2;
-			if (arr[i] + arr[middle] == value) {
-				summa = summa + 1;
-				int j = middle + 1;
-				while (arr[i] + arr[j] == value && j < rightInd) {
-					summa = summa + 1;
-					j = j + 1;
-				}
-				j = middle - 1;
-				while (arr[i] + arr[j] == value && j > leftInd) {
-					summa = summa + 1;
-					j = j - 1;
-				}
-				break;
-			}
-			if (arr[i] + arr[middle] > value) {
-				rightInd = middle;
-			}
-			else {
-				leftInd = middle;
-			}
-		}
-	}
+    int summa = 0;
+    for (int i = 0; i < len - 1; i++) {
+        int leftInd = i;
+        int rightInd = len;
+        while (leftInd < rightInd - 1) {
+            int middle = (leftInd + rightInd) / 2;
+            if (arr[i] + arr[middle] == value) {
+                summa = summa + 1;
+                int j = middle + 1;
+                while (arr[i] + arr[j] == value && j < rightInd) {
+                    summa = summa + 1;
+                    j = j + 1;
+                }
+                j = middle - 1;
+                while (arr[i] + arr[j] == value && j > leftInd) {
+                    summa = summa + 1;
+                    j = j - 1;
+                }
+                break;
+            }
+            if (arr[i] + arr[middle] > value) {
+                rightInd = middle;
+            }
+            else {
+                leftInd = middle;
+            }
+        }
+    }
     return summa;
 }
